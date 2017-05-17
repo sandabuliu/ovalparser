@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definition xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+            xmlns:linux-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux"
+            xmlns:independent-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+            xmlns:unix-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix"
+            xmlns:ind-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            xmlns:lin-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux"
+            xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            class="compliance"
+            id="oval:mil.disa.fso.redhat.rhel6:def:1049"
+            version="1">
+   <generator>
+      <oval:product_name>Text Editors</oval:product_name>
+      <oval:schema_version>5.8</oval:schema_version>
+      <oval:timestamp>2010-06-08T12:00:00-04:00</oval:timestamp>
+  </generator>
+   <definitions>
+      <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:661" version="1">
+         <metadata>
+            <title>Package tftp-server Removed</title>
+            <affected family="unix">
+               <platform>Red Hat Enterprise Linux 6</platform>
+            </affected>
+            <reference source="AXTX" ref_id="AXTX-SCMS-10210"/>
+            <description>The RPM package tftp-server should be removed.</description>
+            <reference source="swells" ref_id="20130829" ref_url="test_attestation"/>
+            <reference source="mil.disa.fso.redhat.rhel6" ref_id="package_tftp-server_removed"/>
+         </metadata>
+         <criteria>
+            <criterion comment="package tftp-server is removed"
+                       test_ref="oval:mil.disa.fso.redhat.rhel6:tst:662"/>
+         </criteria>
+      </definition>
+      <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:1049" version="1">
+         <metadata>
+            <title>TFTP Daemon Uses Secure Mode</title>
+            <affected family="unix">
+               <platform>Red Hat Enterprise Linux 6</platform>
+            </affected>
+            <description>The TFTP daemon should use secure mode.</description>
+            <reference source="MED" ref_id="20130819" ref_url="test_attestation"/>
+            <reference source="mil.disa.fso.redhat.rhel6" ref_id="tftpd_uses_secure_mode"/>
+         </metadata>
+         <criteria comment="package tftp-server removed or /etc/xinetd.d/tftp configured correctly"
+                   operator="OR">
+            <extend_definition comment="rpm package tftp-server removed"
+                               definition_ref="oval:mil.disa.fso.redhat.rhel6:def:661"/>
+            <criterion comment="tftpd secure mode" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:1050"/>
+         </criteria>
+      </definition>
+   </definitions>
+   <tests>
+      <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+                                  check="all"
+                                  comment="tftpd secure mode"
+                                  id="oval:mil.disa.fso.redhat.rhel6:tst:1050"
+                                  version="1">
+         <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1978"/>
+      </ind:textfilecontent54_test>
+      <linux:rpminfo_test xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux"
+                          check="all"
+                          check_existence="none_exist"
+                          id="oval:mil.disa.fso.redhat.rhel6:tst:662"
+                          version="1"
+                          comment="package tftp-server is removed">
+         <linux:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1637"/>
+      </linux:rpminfo_test>
+   </tests>
+   <objects>
+      <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+                                    id="oval:mil.disa.fso.redhat.rhel6:obj:1978"
+                                    version="1">
+         <ind:filepath datatype="string">/etc/xinetd.d/tftp</ind:filepath>
+         <ind:pattern operation="pattern match" datatype="string">^[\s]*server_args[\s]+=[\s]+\-s[\s]+.+$</ind:pattern>
+         <ind:instance datatype="int">1</ind:instance>
+      </ind:textfilecontent54_object>
+      <linux:rpminfo_object xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux"
+                            id="oval:mil.disa.fso.redhat.rhel6:obj:1637"
+                            version="1">
+         <linux:name datatype="string">tftp-server</linux:name>
+      </linux:rpminfo_object>
+   </objects>
+</definition>

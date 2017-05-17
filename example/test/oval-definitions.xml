@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+            xmlns:unix-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix"
+            xmlns:ind-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            xmlns:lin-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux"
+            xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            class="compliance"
+            id="oval:gov.nist.usgcb.rhel:def:20181"
+            version="1">
+   <generator>
+      <oval:product_name>Text Editors</oval:product_name>
+      <oval:schema_version>5.8</oval:schema_version>
+      <oval:timestamp>2010-06-08T12:00:00-04:00</oval:timestamp>
+  </generator>
+   <definitions>
+      <definition class="compliance" id="oval:gov.nist.usgcb.rhel:def:20185" version="1">
+         <metadata>
+            <title>Set Test</title>
+            <affected family="unix">
+               <platform>Red Hat Enterprise Linux 5</platform>
+            </affected>
+            <reference ref_id="CCE-4348-9" source="CCE"/>
+            <reference source="AXTX" ref_id="AXTX-SCMS-10212"/>
+            <description>The ypserv package should be uninstalled.</description>
+         </metadata>
+         <criteria>
+            <criterion comment="Conditions are satisfied"
+                       test_ref="oval:gov.nist.usgcb.rhel:tst:20185"/>
+         </criteria>
+      </definition>
+      <definition class="compliance" id="oval:gov.nist.usgcb.rhel:def:20180" version="1">
+         <metadata>
+            <title>NIS</title>
+            <affected family="unix">
+               <platform>Red Hat Enterprise Linux 5</platform>
+            </affected>
+            <reference ref_id="CCE-4348-9" source="CCE"/>
+            <reference source="AXTX" ref_id="AXTX-SCMS-10209"/>
+            <description>The ypserv package should be uninstalled.</description>
+         </metadata>
+         <criteria>
+            <criterion comment="Conditions are satisfied"
+                       test_ref="oval:gov.nist.usgcb.rhel:tst:20180"/>
+         </criteria>
+      </definition>
+      <definition class="compliance" id="oval:gov.nist.usgcb.rhel:def:20182" version="1">
+         <metadata>
+            <title>Variable test</title>
+            <affected family="unix">
+               <platform>Red Hat Enterprise Linux 5</platform>
+            </affected>
+            <reference ref_id="CCE-4348-9" source="CCE"/>
+            <reference source="AXTX" ref_id="AXTX-SCMS-10208"/>
+            <description>The ypserv package should be uninstalled.</description>
+         </metadata>
+         <criteria>
+            <criterion comment="Conditions are satisfied"
+                       test_ref="oval:gov.nist.usgcb.rhel:tst:20182"/>
+         </criteria>
+      </definition>
+      <definition class="compliance" id="oval:gov.nist.usgcb.rhel:def:20183" version="1">
+         <metadata>
+            <title>XML test</title>
+            <affected family="unix">
+               <platform>Red Hat Enterprise Linux 5</platform>
+            </affected>
+            <reference ref_id="CCE-4348-9" source="CCE"/>
+            <reference source="AXTX" ref_id="AXTX-SCMS-10211"/>
+            <description>The ypserv package should be uninstalled.</description>
+         </metadata>
+         <criteria>
+            <criterion comment="Conditions are satisfied"
+                       test_ref="oval:gov.nist.usgcb.rhel:tst:20183"/>
+         </criteria>
+      </definition>
+      <definition class="compliance" id="oval:gov.nist.usgcb.rhel:def:20184" version="1">
+         <metadata>
+            <title>Filecontent test</title>
+            <affected family="unix">
+               <platform>Red Hat Enterprise Linux 5</platform>
+            </affected>
+            <reference ref_id="CCE-4348-9" source="CCE"/>
+            <reference source="AXTX" ref_id="AXTX-SCMS-10210"/>
+            <description>The ypserv package should be uninstalled.</description>
+         </metadata>
+         <criteria>
+            <criterion comment="Conditions are satisfied"
+                       test_ref="oval:gov.nist.usgcb.rhel:tst:20184"/>
+         </criteria>
+      </definition>
+      <definition class="compliance" id="oval:gov.nist.usgcb.rhel:def:20181" version="1">
+         <metadata>
+            <title>NIS</title>
+            <affected family="unix">
+               <platform>Red Hat Enterprise Linux 5</platform>
+            </affected>
+            <reference ref_id="CCE-3705-1" source="CCE"/>
+            <reference source="AXTX" ref_id="AXTX-SCMS-10207"/>
+            <description>The ypbind service should be disabled.</description>
+         </metadata>
+         <criteria operator="OR" comment="ypserv is not installed or conditions are met">
+            <extend_definition definition_ref="oval:gov.nist.usgcb.rhel:def:20180"
+                               comment="ypserv is not installed"/>
+            <criteria operator="AND">
+               <criterion comment="Conditions are satisfied"
+                          test_ref="oval:gov.nist.usgcb.rhel:tst:20181"/>
+               <criterion comment="Conditions are satisfied"
+                          test_ref="oval:gov.nist.usgcb.rhel:tst:201811"/>
+               <criterion comment="Conditions are satisfied"
+                          test_ref="oval:gov.nist.usgcb.rhel:tst:201812"/>
+               <criterion comment="Conditions are satisfied"
+                          test_ref="oval:gov.nist.usgcb.rhel:tst:201813"/>
+               <criterion comment="Conditions are satisfied"
+                          test_ref="oval:gov.nist.usgcb.rhel:tst:201814"/>
+               <criterion comment="Conditions are satisfied"
+                          test_ref="oval:gov.nist.usgcb.rhel:tst:201815"/>
+               <criterion comment="Conditions are satisfied"
+                          test_ref="oval:gov.nist.usgcb.rhel:tst:201816"/>
+            </criteria>
+         </criteria>
+      </definition>
+   </definitions>
+   <tests>
+      <unix-def:runlevel_test check_existence="any_exist" id="oval:gov.nist.usgcb.rhel:tst:201816"
+                              version="2"
+                              check="all"
+                              comment="Runlevel test">
+         <unix-def:object object_ref="oval:gov.nist.usgcb.rhel:obj:201816"/>
+         <unix-def:state state_ref="oval:gov.nist.usgcb.rhel:ste:20007"/>
+      </unix-def:runlevel_test>
+      <unix-def:runlevel_test check_existence="any_exist" id="oval:gov.nist.usgcb.rhel:tst:201815"
+                              version="2"
+                              check="all"
+                              comment="Runlevel test">
+         <unix-def:object object_ref="oval:gov.nist.usgcb.rhel:obj:201815"/>
+         <unix-def:state state_ref="oval:gov.nist.usgcb.rhel:ste:20007"/>
+      </unix-def:runlevel_test>
+      <unix-def:runlevel_test check_existence="any_exist" id="oval:gov.nist.usgcb.rhel:tst:201814"
+                              version="2"
+                              check="all"
+                              comment="Runlevel test">
+         <unix-def:object object_ref="oval:gov.nist.usgcb.rhel:obj:201814"/>
+         <unix-def:state state_ref="oval:gov.nist.usgcb.rhel:ste:20007"/>
+      </unix-def:runlevel_test>
+      <unix-def:runlevel_test check_existence="any_exist" id="oval:gov.nist.usgcb.rhel:tst:201813"
+                              version="2"
+                              check="all"
+                              comment="Runlevel test">
+         <unix-def:object object_ref="oval:gov.nist.usgcb.rhel:obj:201813"/>
+         <unix-def:state state_ref="oval:gov.nist.usgcb.rhel:ste:20007"/>
+      </unix-def:runlevel_test>
+      <unix-def:runlevel_test check_existence="any_exist" id="oval:gov.nist.usgcb.rhel:tst:201812"
+                              version="2"
+                              check="all"
+                              comment="Runlevel test">
+         <unix-def:object object_ref="oval:gov.nist.usgcb.rhel:obj:201812"/>
+         <unix-def:state state_ref="oval:gov.nist.usgcb.rhel:ste:20007"/>
+      </unix-def:runlevel_test>
+      <unix-def:runlevel_test check_existence="any_exist" id="oval:gov.nist.usgcb.rhel:tst:201811"
+                              version="2"
+                              check="all"
+                              comment="Runlevel test">
+         <unix-def:object object_ref="oval:gov.nist.usgcb.rhel:obj:201811"/>
+         <unix-def:state state_ref="oval:gov.nist.usgcb.rhel:ste:20007"/>
+      </unix-def:runlevel_test>
+      <unix-def:runlevel_test check_existence="any_exist" id="oval:gov.nist.usgcb.rhel:tst:20181" version="2"
+                              check="all"
+                              comment="Runlevel test">
+         <unix-def:object object_ref="oval:gov.nist.usgcb.rhel:obj:20181"/>
+         <unix-def:state state_ref="oval:gov.nist.usgcb.rhel:ste:20007"/>
+      </unix-def:runlevel_test>
+      <lin-def:rpminfo_test check_existence="none_exist" id="oval:gov.nist.usgcb.rhel:tst:20180"
+                            version="1"
+                            check="all"
+                            comment="The ypserv package should be installed or not as appropriate">
+         <lin-def:object object_ref="oval:gov.nist.usgcb.rhel:obj:20180"/>
+      </lin-def:rpminfo_test>
+      <ind-def:variable_test check_existence="any_exist" id="oval:gov.nist.usgcb.rhel:tst:20182"
+                            version="1"
+                            check="at least one"
+                            comment="The ypserv package should be installed or not as appropriate">
+         <ind-def:object object_ref="oval:gov.nist.usgcb.rhel:obj:20182"/>
+         <ind-def:state state_ref="oval:gov.nist.usgcb.rhel:ste:20182"/>
+      </ind-def:variable_test>
+      <ind-def:xmlfilecontent_test check_existence="any_exist" id="oval:gov.nist.usgcb.rhel:tst:20183"
+                            version="1"
+                            check="at least one"
+                            comment="The ypserv package should be installed or not as appropriate">
+         <ind-def:object object_ref="oval:gov.nist.usgcb.rhel:obj:20183"/>
+         <ind-def:state state_ref="oval:gov.nist.usgcb.rhel:ste:20183"/>
+      </ind-def:xmlfilecontent_test>
+      <ind-def:textfilecontent54_test check_existence="any_exist" id="oval:gov.nist.usgcb.rhel:tst:20184"
+                            version="1"
+                            check="at least one"
+                            comment="The ypserv package should be installed or not as appropriate">
+         <ind-def:object object_ref="oval:gov.nist.usgcb.rhel:obj:20184"/>
+         <ind-def:state state_ref="oval:gov.nist.usgcb.rhel:ste:20184"/>
+      </ind-def:textfilecontent54_test>
+      <ind-def:textfilecontent_test check_existence="any_exist" id="oval:gov.nist.usgcb.rhel:tst:20185"
+                            version="1"
+                            check="at least one"
+                            comment="The ypserv package should be installed or not as appropriate">
+         <ind-def:object object_ref="oval:gov.nist.usgcb.rhel:obj:20185"/>
+      </ind-def:textfilecontent_test>
+   </tests>
+   <objects>
+      <unix-def:runlevel_object id="oval:gov.nist.usgcb.rhel:obj:201816" version="1">
+         <unix-def:service_name datatype="string">halt</unix-def:service_name>
+         <unix-def:runlevel operation="equals" datatype="string">6</unix-def:runlevel>
+      </unix-def:runlevel_object>
+      <unix-def:runlevel_object id="oval:gov.nist.usgcb.rhel:obj:201815" version="1">
+         <unix-def:service_name datatype="string">halt</unix-def:service_name>
+         <unix-def:runlevel operation="equals" datatype="string">5</unix-def:runlevel>
+      </unix-def:runlevel_object>
+      <unix-def:runlevel_object id="oval:gov.nist.usgcb.rhel:obj:201814" version="1">
+         <unix-def:service_name datatype="string">halt</unix-def:service_name>
+         <unix-def:runlevel operation="equals" datatype="string">4</unix-def:runlevel>
+      </unix-def:runlevel_object>
+      <unix-def:runlevel_object id="oval:gov.nist.usgcb.rhel:obj:201813" version="1">
+         <unix-def:service_name datatype="string">halt</unix-def:service_name>
+         <unix-def:runlevel operation="equals" datatype="string">3</unix-def:runlevel>
+      </unix-def:runlevel_object>
+      <unix-def:runlevel_object id="oval:gov.nist.usgcb.rhel:obj:201812" version="1">
+         <unix-def:service_name datatype="string">halt</unix-def:service_name>
+         <unix-def:runlevel operation="equals" datatype="string">2</unix-def:runlevel>
+      </unix-def:runlevel_object>
+      <unix-def:runlevel_object id="oval:gov.nist.usgcb.rhel:obj:201811" version="1">
+         <unix-def:service_name datatype="string">halt</unix-def:service_name>
+         <unix-def:runlevel operation="equals" datatype="string">1</unix-def:runlevel>
+      </unix-def:runlevel_object>
+      <unix-def:runlevel_object id="oval:gov.nist.usgcb.rhel:obj:20181" version="1">
+         <unix-def:service_name datatype="string">halt</unix-def:service_name>
+         <unix-def:runlevel operation="equals" datatype="string">0</unix-def:runlevel>
+      </unix-def:runlevel_object>
+      <lin-def:rpminfo_object id="oval:gov.nist.usgcb.rhel:obj:20180" version="1">
+         <lin-def:name datatype="string" var_ref='oval:mil.disa.fso.windows:var:1962' var_check='all'/>
+      </lin-def:rpminfo_object>
+      <ind-def:variable_object id="oval:gov.nist.usgcb.rhel:obj:20182" version="1">
+         <ind-def:var_ref datatype="string" var_check='all'>oval:mil.disa.fso.windows:var:1963</ind-def:var_ref>
+      </ind-def:variable_object>
+      <ind-def:xmlfilecontent_object id="oval:gov.nist.usgcb.rhel:obj:20183" version="1">
+         <ind-def:filepath datatype="string">/tmp/okok</ind-def:filepath>
+         <ind-def:xpath datatype="string">/a/b[@name='abc']/@value</ind-def:xpath>
+      </ind-def:xmlfilecontent_object>
+      <ind-def:textfilecontent54_object id="oval:gov.nist.usgcb.rhel:obj:20184" version="1">
+         <ind-def:filepath datatype="string">/tmp/okok</ind-def:filepath>
+         <ind-def:pattern datatype="string">abc(\d+)efg</ind-def:pattern>
+         <ind-def:instance datatype="string">1</ind-def:instance>
+      </ind-def:textfilecontent54_object>
+      <ind-def:textfilecontent54_object id="oval:gov.nist.usgcb.rhel:obj:20185" version="1">
+         <set xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" set_operator="COMPLEMENT">
+             <object_reference>oval:gov.nist.usgcb.rhel:obj:20186</object_reference>
+             <object_reference>oval:gov.nist.usgcb.rhel:obj:20187</object_reference>
+             <filter action='exclude'>oval:gov.nist.usgcb.rhel:ste:20185</filter>
+             <filter action='exclude'>oval:gov.nist.usgcb.rhel:ste:20184</filter>
+         </set>
+      </ind-def:textfilecontent54_object>
+      <ind-def:textfilecontent54_object id="oval:gov.nist.usgcb.rhel:obj:20186" version="1">
+         <ind-def:filepath datatype="string" operation='pattern match'>/tmp/set\d</ind-def:filepath>
+         <ind-def:pattern datatype="string">abc(\d+)efg</ind-def:pattern>
+         <ind-def:instance datatype="string">1</ind-def:instance>
+      </ind-def:textfilecontent54_object>
+      <ind-def:textfilecontent54_object id="oval:gov.nist.usgcb.rhel:obj:20187" version="1">
+         <ind-def:filepath datatype="string" operation='pattern match'>/tmp/.*4</ind-def:filepath>
+         <ind-def:pattern datatype="string">abc(\d+)efg</ind-def:pattern>
+         <ind-def:instance datatype="string">1</ind-def:instance>
+      </ind-def:textfilecontent54_object>
+   </objects>
+   <states>
+      <unix-def:runlevel_state version="1" id="oval:gov.nist.usgcb.rhel:ste:20007"
+                               comment="daemon is not running or is stopping">
+         <unix-def:start datatype="boolean">false</unix-def:start>
+         <unix-def:kill datatype="boolean">true</unix-def:kill>
+      </unix-def:runlevel_state>
+      <ind-def:variable_state version="1" id="oval:gov.nist.usgcb.rhel:ste:20182"
+                               comment="daemon is not running or is stopping">
+         <ind-def:value datatype="int">2</ind-def:value>
+      </ind-def:variable_state>
+      <ind-def:xmlfilecontent_state version="1" id="oval:gov.nist.usgcb.rhel:ste:20183"
+                               comment="daemon is not running or is stopping">
+         <ind-def:value_of datatype="int">1234</ind-def:value_of>
+      </ind-def:xmlfilecontent_state>
+      <ind-def:textfilecontent54_state version="1" id="oval:gov.nist.usgcb.rhel:ste:20184"
+                               comment="daemon is not running or is stopping">
+         <ind-def:subexpression datatype="int" operation='less than'>123</ind-def:subexpression>
+      </ind-def:textfilecontent54_state>
+      <ind-def:textfilecontent54_state version="1" id="oval:gov.nist.usgcb.rhel:ste:20185"
+                               comment="daemon is not running or is stopping">
+         <ind-def:subexpression datatype="int" operation='greater than'>400</ind-def:subexpression>
+      </ind-def:textfilecontent54_state>
+   </states>
+   <variables>
+       <constant_variable deprecated="true" id="oval:mil.disa.fso.windows:var:1962" version="2" comment="Authorized time servers" datatype="string">
+           <value>festival-lib</value>
+           <value>festival-lib1</value>
+       </constant_variable>
+       <local_variable id="oval:mil.disa.fso.windows:var:1963" version="1" datatype="string" comment="Split the PATH on the : delimiter">
+           <arithmetic arithmetic_operation="add">
+               <literal_component>0</literal_component>
+               <literal_component>2</literal_component>
+           </arithmetic>
+       </local_variable>
+   </variables>
+</definition>
